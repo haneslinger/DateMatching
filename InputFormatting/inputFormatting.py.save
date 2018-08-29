@@ -1,0 +1,24 @@
+import numpy as np
+from keras.utils import to_categorical
+
+
+def fileToInput( filename):
+    # read file
+    with open(filename) as f:
+        lines = f.readlines()
+    # for each line, get pair, encode pair, append to return object
+    result = np.empty
+    for line in lines:
+        time1, time2 = line.split("\t")
+        print("{t1} <-> {t2}".format(t1 = time1, t2 = time2))
+
+def pharseToOneHot(pharse):
+    result =  np.empty((len(pharse), 127))
+    for i, char in enumerate(pharse):
+        result[i] =  to_categorical(ord(char), 127)
+    return result
+
+
+if __name__ == '__main__':
+    fileToInput("../Input/training_data_true.txt")
+    pass

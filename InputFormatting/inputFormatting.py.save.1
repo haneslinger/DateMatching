@@ -26,9 +26,7 @@ def loadInput(plkFilename):
         datum = pkl.load(f)
         X = []
         Y = []
-        for i in range(10000):
-            if(i % 2500 == 0 and i != 0):
-                print("{} vectorized...".format(i))
+        for i in range(1000):
 	    x, y =  pkl.load(f)
             X.append(x)
             Y.append(y)
